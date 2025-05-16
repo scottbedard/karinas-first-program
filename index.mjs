@@ -8,18 +8,6 @@ import fs from 'node:fs'
 
 const dictionary = fs.readFileSync('dictionary.txt', 'utf8').split('\n')
 
-// const add = fs.readFileSync('add.txt', 'utf8').split('\n')
-
-// const combined = add
-//   .concat(dictionary)
-//   .filter(str => str.match(/^[a-zA-Z]+$/))
-//   .sort()
-//   .map(str => str.toLowerCase())
-
-// const unique = [...new Set(combined)]
-
-// fs.writeFileSync('combined.txt', unique.join('\n'))
-
 const cipher = "enpiadh"
 
 const wordLength = 8
