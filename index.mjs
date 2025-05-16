@@ -1,14 +1,22 @@
-import { dictionary } from './dictionary.mjs'
-const awesome = "bishhhhhh"
-const letters = "icekndp"
+import fs from 'node:fs'
 
-function words (word) {      
+const dictionary = fs.readFileSync('dictionary.txt', 'utf8').split('\n')
+
+const awesome = "bishhhhhh"
+const cipher = "enpiadh"
+
+function checkifwordisvalid (word) {      
   const length = word.length
+
+  if (length !== 7) {
+    return false
+  }
+
 
   for (let i = 0; i < length; i++) {
     const currentletter = word[i]
 
-    if (letters.includes(currentletter) == false) {
+    if (cipher.includes(currentletter) === false) {
       return false
     }
   }
@@ -20,11 +28,15 @@ for (const word of dictionary) {
   //   continue
   // }
 
-  if (word.length <= 4 && word.length <= 12){
+  // if (word.length != 9){
+  //   continue
+  // }
+
+  if (word.includes("i") === false) {
     continue
   }
 
-  if (word.includes("p") == false) {
+  if (word.startsWith("he") === false) {
     continue
   }
 
@@ -33,7 +45,7 @@ for (const word of dictionary) {
   //   continue
   // }
 
-  if (words(word)) {
+  if (checkifwordisvalid(word)) {
     console.log(word)
   }
 }
